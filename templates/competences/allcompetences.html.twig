@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %} {% block title %}Hello CompetencesController!{%
+endblock %} {% block body %}
+
+<div class="container">
+  <br>
+  <p class="titrecomp">Compétences</p>
+<br><br>
+  <div class="row">
+    <p class="comp">Voici les différents langages de programmation et outils que j'ai utilisés. <br> Pour le codage j'utilise Visual Studio Code. C'est un éditeur de code qui peut être utilisé avec une variété de langages de programmation.</p>
+    {% for competences in competences %}
+    <div class="col-md-4" style="padding: 40px;">
+      <div class="card mt-5 my-5" style="width: 18rem; height: 100%; padding: 10px;">
+        <h5 class="card-title" style="background-color: rgb(209, 209, 209);">{{ competences.langage }}</h5>
+        <img
+          src="{{ competences.logo }}"
+          class="card-img-top logoComp"
+          style="width: 60%; height: 30%;"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">{{ competences.description }}</p>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+  </div>
+ 
+</div>
+{% endblock %}

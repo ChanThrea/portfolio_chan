@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ExperiencesController!{% endblock %}
+
+{% block body %}
+
+<div class="row" style="justify-content: center;">
+
+  <div class="col-sm-4" style="width: 1000px; height: 350px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style= "filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">1) Mon expérience à la Fabrique Numérique de Gonesse</h5>
+        <br>
+        <p class="card-text">- Conception graphique (création d'affiches, flyers et autres types de contenu visuel)<br> - Codage et modélisation <br> - Finalisation d'objets 3D <br> - Impressions 3D <br> - Travaux manuels (manipulations de matériels, outils, montage etc...) <br> - Usage du web <br> - Gestion du temps</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4" style="width: 1000px; height: 350px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style= "filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">2) Mon expérience au FabLab au PoleS</h5>
+        <br>
+        <p class="card-text">- Impressions 3D et modélisations <br>
+          - Codage (Arduino) <br>
+          - Maîtrise des logiciels FreeCAD et Ultimaker Cura <br>
+          - Usages du Web <br>
+          - Travaux manuels</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2" style="width: 1000px;">
+    <div class="card" style="height: 320px;">
+      <div class="card-body">
+        <h5 class="card-title" style="filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">3) Mon expérience à l'École du web chez LePoleS</h5>
+        <br>
+        <p class="card-text"><u>Programmation informatique</u> : <br> - Création de sites web <br> - Tester le fonctionnement du site <br> - Outils informatique et design <br> - Création de projets </p>
+      </div>
+    </div>
+  </div>
+</div>
+{# {% for experiences in experiences %}
+<p>{{experiences.description}}</p>
+{% endfor %} #}
+{% endblock %}

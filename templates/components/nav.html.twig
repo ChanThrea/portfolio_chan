@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+    <a class="navbar-brand"  id="logo"href="{{path("app_home")}}"><img class="logo" src="../uploads/image/logo2.png" alt=""></a> <!-- ça c'est la page accueil -->
+    <a class="navbar-brand" href="{{path("app_profil")}}">À propos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{path("app_all_formations")}}">Formations</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{path("app_all_experiences")}}">Expériences</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{path("app_all_projets")}}">Réalisations</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{path("app_all_competences")}}">Compétences</a>
+        </li>
+        
+       
+        <li class="nav-item">
+          <a class="nav-link" href="{{path("app_contact")}}">Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class='nav-link' href="{{asset ('assets/cv.pdf')}}"  target="_blank" donwload ="">Télécharger mon CV</a>
+        </li>
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
+          <ul class="dropdown-menu">
+
+            {% if app.user %}
+
+            <li><a class="dropdown-item" href="{{path("app_logout")}}">Déconnexion</a></li>
+            <li><a class="dropdown-item" href="{{path("app_formations")}}">Ajouter une formation</a></li>
+            <li><a class="dropdown-item" href="{{path("app_experiences")}}">Ajouter une expérience</a></li>
+            <li><a class="dropdown-item" href="{{path("app_projets")}}">Ajouter un projet</a></li>
+            <li><a class="dropdown-item" href="{{path("app_competences")}}">Ajouter une compétence</a></li>
+            <li><a class="dropdown-item" href="{{path("app_admin_contact")}}">Messagerie</a></li>
+            {% endif %}
+          </ul>
+        </li>
+
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<marquee>École du web (LePoleS) – 3 Square des Sports - 95500 Gonesse - https://lepoles.org/</marquee>
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<br><br>
+<h1 class="text-center">Réalisations</h1>
+<br>
+<p class="soustitre">Ci-dessous, mes différents projets que j'ai réaliser :</p>
+
+<section class="container">
+  <div class="row">
+    {% for Projets in Projets %}
+    <div class="col-md-3" style="margin-top: 60px;">
+      <div class="card md-5">
+        <div class="card-header">
+          <h5 class="">{{Projets.titre}}</h5>
+        </div>
+
+        <div class="card-body" style="height: 30px;">
+        
+          <img class="image" src="{{asset('uploads/image/' ~ Projets.image)}}" alt="">
+          <br><br>
+          <p class="card-text">{{Projets.description}}</p>
+          
+          <a class="btn btn-success my-5" href="{{path('app_single_projets',{id: Projets.id})}}">Voir</a>
+          {% if is_granted('ROLE_ADMIN') %}
+          <a class="btn btn-warning my-5" href="{{path('app_admin_edit_projets',{id: Projets.id})}}">Modifier</a>
+          {# <a class="btn btn-danger my-5" href="{{path('app_admin_delete_projets',{id: Projets.id})}}">Supprimer</a> #}
+          <a class="btn btn-danger" href="{{ path('app_admin_delete_projets',{id: Projets.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir cette suppression ?')">Supprimer</a>{% endif %}
+        </div>
+      </div>
+    </div>
+      
+       
+      
+    {% endfor %}
+ </div>
+</section>
+{% endblock %}

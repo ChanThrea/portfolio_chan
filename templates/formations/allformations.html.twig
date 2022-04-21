@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %} {% block title %}Accueil{% endblock %} {% block
+body %}
+<br><br>
+<h1 class="formations">Formations</h1>
+<br>
+<section class="container" style="margin-left: 290px;">
+  <div class="row">
+    {% for Formations in Formations %}
+    <div class="card col-md-3 m-30" style="width: 30%; height: 10%;">
+      <div class="card-body" style="filter: drop-shadow(6px 6px 5px #a7a7a7);">
+        <p class="card-title" style="background-color: rgb(233, 233, 233);">{{ Formations.titre }}</p><br><br>
+        <h5 class="card-text"><img
+          class="image"
+          src="{{ Formations.image}}"
+          alt=""
+        /></h5>
+        <br>
+        <p class="card-title" style="color: black;">{{ Formations.description }}</p>
+        <p class="card-text">{{Formations.dateDebut | date('d-M-y')}}</p>
+
+        <span>{{Formations.dateFin | date('d-M-y')}}</span
+        ><br />
+
+        {% if is_granted('ROLE_ADMIN') %}
+        <a
+          class="btn btn-warning my-5"
+          href="{{ path('app_admin_edit_formations', { id: Formations.id }) }}"
+          >Modifier</a
+        >
+
+        <!-- <a
+          class="btn btn-danger my-5"
+          href="{{
+            path('app_admin_delete_formations', { id: Formations.id })
+          }}"
+          >Supprimer</a
+        > -->
+        {% endif %}
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- <div class="row" style="justify-content: center;">
+  <div class="col-sm-4" style="width: 1000px; height: 350px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style= "filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">1) Mon expérience à la Fabrique Numérique de Gonesse</h5>
+        <br>
+        <p class="card-text">- Conception graphique (création d'affiches, flyers et autres types de contenu visuel)<br> - Codage et modélisation <br> - Finalisation d'objets 3D <br> - Impressions 3D <br> - Travaux manuels (manipulations de matériels, outils, montage etc...) <br> - Usage du web <br> - Gestion du temps</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4" style="width: 1000px; height: 350px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style= "filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">2) Mon expérience au FabLab au PoleS</h5>
+        <br>
+        <p class="card-text">- Impressions 3D et modélisations <br>
+          - Codage (Arduino) <br>
+          - Maîtrise des logiciels FreeCAD et Ultimaker Cura <br>
+          - Usages du Web <br>
+          - Travaux manuels</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4" style="width: 1000px; height: 340px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title" style="filter: drop-shadow(6px 6px 5px #a7a7a7); background-color: rgb(233, 233, 233);">3) Mon expérience à l'École du web chez LePoleS</h5>
+        <br>
+        <p class="card-text"><u>Programmation informatique</u> : <br> - Création de sites web <br> - Tester le fonctionnement du site <br> - Outils informatique et design <br> - Création de projets </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+{% endblock %}
